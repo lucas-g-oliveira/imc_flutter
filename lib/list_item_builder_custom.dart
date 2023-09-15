@@ -13,7 +13,7 @@ Widget listItemBuilder(Map<String, dynamic> content) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Peso (kg): ${content['peso']}"),
-            Text("Altura (cm): ${content['altura']}"),
+            Text("Altura (M): ${content['altura']}"),
             Text("IMC: ${content['imc'].toStringAsFixed(2)}"),
           ],
         ),

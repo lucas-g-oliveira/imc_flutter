@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:imc_flutter/classes/IMC.dart';
 import 'package:imc_flutter/interfaces/i_pessoa.dart';
 
@@ -22,8 +21,6 @@ class Storage {
       "altura": people.getAltura(),
       "imc": imc['imc'],
       "situação": imc['result'],
-      "alert_nivel": imc['alerta'],
-      "id": UniqueKey().toString()
     };
 
     data.add(user);

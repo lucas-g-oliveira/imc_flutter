@@ -44,19 +44,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       Column(children: [
                         const Text("Peso(Kg)"),
                         TextField(
-                            onChanged: (value) => {
-                                  validadeFields = (pesoController.text != "" ||
-                                      alturaController.text != "")
-                                },
                             controller: pesoController,
                             keyboardType: TextInputType.number),
                         const SizedBox(height: 10, width: 10),
                         const Text("Altura(M)"),
                         TextField(
-                          onChanged: (value) => {
-                            validadeFields = (pesoController.text != "" ||
-                                alturaController.text != "")
-                          },
                           controller: alturaController,
                           keyboardType: TextInputType.number,
                         ),
@@ -67,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 onPressed: () {
                                   pesoController.text = "";
                                   alturaController.text = "";
+                                  validadeFields = false;
                                   Navigator.pop(context);
                                 },
                                 child: const Text(
@@ -74,17 +67,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                   style: TextStyle(color: Colors.red),
                                 )),
                             TextButton(
-                                onPressed: !validadeFields
-                                    ? () {
-                                        pessoa.setAltura(alturaController.text);
-                                        pessoa.setPeso(pesoController.text);
-                                        dataList.add(pessoa);
-                                        Navigator.pop(context);
-                                        pesoController.text = "";
-                                        alturaController.text = "";
-                                        setState(() {});
-                                      }
-                                    : () {},
+                                onPressed: () {
+                                  print(validadeFields);
+                                  pessoa.setAltura(alturaController.text);
+                                  pessoa.setPeso(pesoController.text);
+                                  dataList.add(pessoa);
+                                  Navigator.pop(context);
+                                  pesoController.text = "";
+                                  alturaController.text = "";
+                                  validadeFields = false;
+                                  setState(() {});
+                                },
                                 child: const Text(
                                   "Calcular",
                                 )),
